@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café do Pedro</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f3f0;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+    header {
+      background: #006241;
+      color: white;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .chatbox {
+      width: 300px;
+      max-width: 90%;
+      background: white;
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      padding: 20px;
+      display: none;
+      z-index: 1000;
+    }
+    #messages {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: #f9f9f9;
+    }
+    .msg {
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 6px;
+    }
+    .user {
+      background: #d1f7d6;
+      text-align: right;
+    }
+    .bot {
+      background: #f0f0f0;
+      text-align: left;
+    }
+    input {
+      width: 75%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      background: #006241;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #004d34;
+    }
+    .chat-icon {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      background: url('https://img.icons8.com/ios-filled/50/coffee-to-go.png') no-repeat center center;
+      background-size: contain;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>Café do Pedro ☕</header>
+  <div class="chatbox" id="chatbox">
+    <div id="messages"></div>
+    <input type="text" id="userInput" placeholder="Pergunte o preço de algo...">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+
+  <div class="chat-icon" onclick="toggleChat()"></div>
+
+  <script>
+    const produtos = {
+      "café": "R$ 5,00",
+      "pão de queijo": "R$ 4,50",
+      "capuccino": "R$ 7,00",
+      "chá": "R$ 4,00",
+      "caneca": "R$ 25,00"
+    };
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const msg = input.value.trim().toLowerCase();
+      if (!msg) return;
+
+      addMessage(msg, "user");
+
+      let resposta = "Desculpe, não tenho esse item no cardápio.";
+      for (let item in produtos) {
+        if (msg.includes(item)) {
+          resposta = `${item.charAt(0).toUpperCase() + item.slice(1)} custa ${produtos[item]}.`;
+          break;
+        }
+      }
+
+      setTimeout(() => {
+        addMessage(resposta, "bot");
+      }, 500);
+
+      input.value = "";
+    }
+
+    function addMessage(text, sender) {
+      const messagesDiv = document.getElementById("messages");
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add("msg", sender);
+      msgDiv.textContent = text;
+      messagesDiv.appendChild(msgDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function toggleChat() {
+      const chatbox = document.getElementById("chatbox");
+      chatbox.style.display = chatbox.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</body>
+</html>

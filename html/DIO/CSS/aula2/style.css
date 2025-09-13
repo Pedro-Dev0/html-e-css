@@ -1,0 +1,20 @@
+body {
+    /*
+    
+
+    o background-origin padding-box
+    ocupa os espaços próximos do padding mas não o padding em si
+
+    border box ocupa o espaço da borda
+
+    o content box não ocupa nenhum desses espaços e faz com que a imagem diminua para não afetar essas bordas
+
+
+    background-clip: mesma coisa do acima mas com cores solidas em vez de imagem
+    clip text
+
+    background-blend-mode: para mesclar fotos de backgroun image e background color a
+
+
+    */
+}

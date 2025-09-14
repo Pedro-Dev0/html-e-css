@@ -9,4 +9,45 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    margin: 10px 80px 0 80px;
+}
+
+.container-principal {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto-principal {
+    width: 400px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+}
+
+.texto-starbucks {
+    color: #129961;
+    font-weight: bold;
+    font-size: 28px;
+    background-color: rgba(255, 255, 255, 0.788);
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.btn-provar {
+    background-color: #129961;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-provar:hover {
+    background-color: white;
+    color: #129961;
+    border: 2px solid #129961;
 }

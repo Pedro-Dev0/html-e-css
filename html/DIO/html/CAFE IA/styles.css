@@ -25,6 +25,13 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow';
 }
 
+p {
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
 .texto-starbucks {
     color: #129961;
     font-weight: bold;
@@ -33,6 +40,13 @@ body {
     padding: 3px;
     border-radius: 5px;
 }
+
+.texto-starbucks2 {
+    color: #129961;
+    font-weight: bold;
+    font-size: 28px;
+}
+
 
 .btn-provar {
     background-color: #129961;
@@ -50,4 +64,14 @@ body {
     background-color: white;
     color: #129961;
     border: 2px solid #129961;
+}
+
+.imagem-principal {
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.imagem-cafe {
+    width: 350px;
 }

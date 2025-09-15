@@ -1,3 +1,131 @@
+.chat-quick-options {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #eee;
+}
+.quick-option {
+    background: #129961;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin: 0 2px;
+    transition: background 0.3s;
+}
+.quick-option:hover {
+    background: #0a5c3d;
+}
+/* Chat flutuante */
+.chat-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #129961;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+.chat-icon:hover {
+    background: #0a5c3d;
+}
+
+.chatbot-section {
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    width: 350px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    z-index: 1001;
+    padding: 0;
+    overflow: hidden;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+.chat-header {
+    background: #129961;
+    color: #fff;
+    padding: 12px 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+}
+.close-chat {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.chat-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f7f7f7;
+    font-size: 0.95rem;
+}
+.chat-message {
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #e9f5ee;
+}
+.chat-message strong {
+    color: #129961;
+}
+#chat-form {
+    display: flex;
+    border-top: 1px solid #eee;
+    padding: 10px;
+    background: #fff;
+}
+#chat-input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-right: 8px;
+}
+#chat-form button {
+    background: #129961;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+#chat-form button:hover {
+    background: #0a5c3d;
+}
 * {
     margin: 0;
     padding: 0;

@@ -44,9 +44,9 @@
 
 .chatbot-section {
     position: fixed;
-    bottom: 100px;
-    right: 40px;
-    width: 350px;
+    bottom: 90px;
+    right: 36px;
+    width: 420px; /* maior para comportar promoções */
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.25);
@@ -64,7 +64,7 @@
 .chat-container {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 520px; /* altura aumentada para mostrar cards/promoções */
 }
 .chat-header {
     background: #129961;
@@ -90,6 +90,21 @@
     background: #f7f7f7;
     font-size: 0.95rem;
 }
+
+/* Responsividade: reduzir chat em telas pequenas */
+@media (max-width: 520px) {
+    .chatbot-section {
+        right: 16px;
+        bottom: 70px;
+        width: 95%;
+        left: 2.5%;
+        transform: none;
+        border-radius: 12px;
+    }
+    .chat-container {
+        height: 60vh; /* usar altura relativa em mobile */
+    }
+}
 .chat-message {
     margin-bottom: 10px;
     padding: 6px 10px;
@@ -98,6 +113,26 @@
 }
 .chat-message strong {
     color: #129961;
+}
+
+/* Indicador de digitando */
+.chat-typing {
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: #fff3e0;
+    color: #7a4b00;
+    font-style: italic;
+}
+/* Quando o chat estiver aberto, prevenir o scroll da página sem causar 'shift' */
+.no-scroll {
+    overflow: hidden !important;
+    height: 100vh; /* garante altura fixa */
+}
+
+/* Compensação para evitar shift quando scrollbar some */
+.no-scroll-compensate {
+    padding-right: var(--scrollbar-comp, 0px) !important;
 }
 #chat-form {
     display: flex;
@@ -238,4 +273,18 @@ p {
     border: 2px solid transparent;
     margin-bottom: 100px;
 }
+
+/* Esconder a barra de rolagem visualmente, mantendo a rolagem por touch/trackpad/roda do mouse */
+/* Firefox */
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+/* WebKit (Chrome, Edge, Safari) */
+body::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/* Mantém acessibilidade: foco e outline não são afetados */
 

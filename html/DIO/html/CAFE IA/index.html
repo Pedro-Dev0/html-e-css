@@ -26,7 +26,9 @@
         </section>
 
         <section class="imagem-principal">
-            <img class="imagem-cafe" src="img/img1.png" alt="copo de café verde">
+            <div class="cafe-circle">
+                <img class="imagem-cafe" src="img/img1.png" alt="copo de café verde">
+            </div>
         </section>
     </main>
     <section class="imagens-produtos">
@@ -34,5 +36,32 @@
         <img class="thumbnail" src="img/thumb2.png" alt="thumbnail do copo de café rosa">
         <img class="thumbnail" src="img/thumb3.png" alt="thumbnail do copo de café rosa-choque">
     </section>
+>
+    <script>
+
+        // Troca a imagem principal ao clicar em uma thumbnail
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.imagem-cafe');
+            const cafeCircle = document.querySelector('.cafe-circle');
+            const imgMap = {
+                'thumb1.png': {img: 'img1.png', color: '#129961'}, // verde
+                'thumb2.png': {img: 'img2.png', color: '#e91e63'}, // rosa
+                'thumb3.png': {img: 'img3.png', color: '#ff69b4'}  // rosa-choque
+            };
+            thumbnails.forEach(function(thumbnail) {
+                thumbnail.addEventListener('click', function() {
+                    const thumbSrc = this.getAttribute('src');
+                    const thumbFile = thumbSrc.split('/').pop();
+                    const mainImgObj = imgMap[thumbFile];
+                    if (mainImgObj) {
+                        mainImage.src = 'img/' + mainImgObj.img;
+                        cafeCircle.style.borderColor = mainImgObj.color;
+                        cafeCircle.style.background = mainImgObj.color;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

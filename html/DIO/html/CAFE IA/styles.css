@@ -70,15 +70,30 @@ p {
     border: 2px solid #129961;
 }
 
+
 .imagem-principal {
     width: 500px;
     display: flex;
     justify-content: flex-end;
 }
 
+
+.cafe-circle {
+    width: 370px;
+    height: 370px;
+    border-radius: 50%;
+    border: 10px solid #129961; /* cor inicial: verde */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    transition: border-color 0.3s, background 0.3s;
+    background: #129961; /* cor inicial preenchida */
+}
+
 .imagem-cafe {
     width: 350px;
-    margin-top: 50px;
+    margin-top: 0;
 }
 
 .imagens-produtos {
@@ -86,9 +101,11 @@ p {
     justify-content: center;
 }
 
+
 .thumbnail {
     width: 70px;
     margin: 10px;
+    margin-top: 60px; /* mais para baixo */
     cursor: pointer;
     border: 2px solid transparent;
     margin-bottom: 100px;

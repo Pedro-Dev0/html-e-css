@@ -56,6 +56,15 @@
     animation: fadeIn 0.3s;
 }
 
+/* Overlay para desktop quando o chat fica modal */
+.chat-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -97,13 +106,30 @@
         right: 16px;
         bottom: 70px;
         width: 95%;
-        left: 2.5%;
-        transform: none;
-        border-radius: 12px;
+    /* central container para enquadramento e max-width */
+    .container-principal {
+        flex-direction: column;
+        align-items: center; /* centraliza horizontalmente */
+        gap: 18px;
+        padding: 14px 12px;
+        max-width: 480px;
+        margin: 0 auto;
     }
-    .chat-container {
-        height: 60vh; /* usar altura relativa em mobile */
     }
+}
+
+/* Estilos de comportamento por plataforma
+   - Desktop: chat abre como modal com overlay e bloqueio de scroll (via .no-scroll)
+   - Mobile: chat aparece como painel flutuante, sem overlay, rolagem permitida
+*/
+@media (min-width: 768px) {
+    /* desktop: mostrar overlay e garantir que .chatbot-section seja modal */
+    .chat-overlay { display: block; }
+    .chatbot-section { bottom: 80px; right: 40px; }
+}
+@media (max-width: 767px) {
+    /* mobile: overlay invisível e sem efeito, manter rolagem */
+    .chat-overlay { display: none !important; }
 }
 .chat-message {
     margin-bottom: 10px;
@@ -125,14 +151,18 @@
     font-style: italic;
 }
 /* Quando o chat estiver aberto, prevenir o scroll da página sem causar 'shift' */
-.no-scroll {
-    overflow: hidden !important;
-    height: 100vh; /* garante altura fixa */
-}
 
 /* Compensação para evitar shift quando scrollbar some */
 .no-scroll-compensate {
     padding-right: var(--scrollbar-comp, 0px) !important;
+}
+
+/* Bloqueio de scroll somente para desktop (largura mínima de 768px) */
+@media (min-width: 768px) {
+    .no-scroll {
+        overflow: hidden !important;
+        height: 100vh; /* fixa altura para evitar problemas de layout */
+    }
 }
 #chat-form {
     display: flex;
@@ -167,6 +197,39 @@
     box-sizing: border-box;
 }
 
+/* Skip-link acessível (visível quando em foco) */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    position: fixed;
+    left: 12px;
+    top: 12px;
+    width: auto;
+    height: auto;
+    background: #ffffff;
+    color: #129961;
+    padding: 8px 12px;
+    border-radius: 6px;
+    z-index: 2000;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+/* Melhora de renderização de fontes e estilos de foco acessíveis */
+body, button, input, textarea {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+button:focus, input:focus, .quick-option:focus, .close-chat:focus, .chat-icon:focus {
+    outline: 3px solid rgba(18,153,97,0.24);
+    outline-offset: 2px;
+}
+
 body {
     background-image: url('img/fundo.jpg');
     background-repeat: no-repeat;
@@ -184,6 +247,73 @@ body {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Mobile otimizações (primeiro: regras gerais para telas pequenas) */
+@media (max-width: 767px) {
+    body {
+        margin: 8px 12px 0 12px;
+        background-position: center top;
+    }
+    .container-principal {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 12px 6px;
+    }
+    .texto-principal {
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+        background: rgba(255,255,255,0.6);
+        border-radius: 8px;
+    }
+    .texto-principal p { color: #0b3b2a; }
+    .texto-starbucks, .texto-starbucks2 { color: #0b3b2a; }
+    .imagem-principal {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0;
+    }
+    .cafe-circle {
+        width: 260px;
+        height: 260px;
+        border-width: 8px;
+        margin-top: 16px;
+    }
+    .imagem-cafe {
+        width: 220px;
+    }
+    .thumbnail { width: 56px; margin-top: 12px; }
+    .imagens-produtos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; justify-items: center; margin-bottom: 12px; }
+    .texto-principal h1 { font-size: 20px; }
+    .texto-principal h2 { font-size: 18px; }
+    .btn-provar { padding: 12px 18px; font-size: 14px; }
+    .chatbot-section {
+        width: 95%;
+        right: 2.5%;
+        left: 2.5%;
+        bottom: 24px;
+        border-radius: 12px;
+    }
+    .chat-container { height: 60vh; }
+    .chat-quick-options { flex-wrap: wrap; gap: 6px; }
+    .quick-option { flex: 1 1 auto; min-width: 44%; padding: 10px; font-size: 0.95rem; }
+
+    /* CTA centralizado e legível */
+    .btn-provar { display: block; width: 100%; margin: 12px 0; text-align: center; }
+    .texto-principal { color: #052918; line-height: 1.4; }
+    .texto-starbucks, .texto-starbucks2 { color: #0b3b2a; }
+    p { color: #083827; font-size: 15px; }
+
+    /* quick-options: botões full width para toque confortável */
+    .chat-quick-options { display: flex; flex-direction: column; gap: 8px; padding: 12px; }
+    .quick-option { width: 100%; min-width: unset; }
+
+    /* melhora a leitura do header */
+    .chat-header { font-size: 1.05rem; padding: 14px; }
 }
 
 .texto-principal {

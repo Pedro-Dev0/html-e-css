@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const thumbnails = document.querySelectorAll('.thumbnail');
     const mainImage = document.querySelector('.imagem-cafe');
     const cafeCircle = document.querySelector('.cafe-circle');
+    const chatOverlay = document.getElementById('chat-overlay');
+    const mainContent = document.querySelector('main');
 
     if (!chatIcon || !chatbotSection || !closeChat || !chatForm || !chatInput || !chatMessages) {
         console.warn('Elementos do chat não encontrados — verifique o HTML.');
@@ -99,10 +101,18 @@ Finalização: polvilhe cacau em pó ou canela.`,
         chatbotSection.style.display = 'block';
         chatIcon.style.visibility = 'hidden';
         chatMessages.innerHTML = '';
-        // desabilita scroll da página e compensa scrollbar para evitar shift
-        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-        document.body.style.setProperty('--scrollbar-comp', scrollbarWidth + 'px');
-        document.body.classList.add('no-scroll', 'no-scroll-compensate');
+        // se desktop (largura >= 768px) ativamos overlay e bloqueio de scroll
+        const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+        if (isDesktop) {
+            // desabilita scroll da página e compensa scrollbar para evitar shift
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            document.body.style.setProperty('--scrollbar-comp', scrollbarWidth + 'px');
+            document.body.classList.add('no-scroll', 'no-scroll-compensate');
+            if (chatOverlay) { chatOverlay.style.display = 'block'; chatOverlay.setAttribute('aria-hidden', 'false'); }
+            if (mainContent) { mainContent.setAttribute('aria-hidden', 'true'); }
+        }
+        // foco no input para acessibilidade
+        setTimeout(() => { chatInput.focus(); }, 120);
         appendMessage('Vitoria', 'Olá! Eu sou a Vitoria, sua assistente do café. Como posso ajudar?');
     });
 
@@ -111,9 +121,14 @@ Finalização: polvilhe cacau em pó ou canela.`,
         setTimeout(() => {
             chatbotSection.style.display = 'none';
             chatIcon.style.visibility = 'visible';
-            // restaura scroll e remove compensação
-            document.body.classList.remove('no-scroll', 'no-scroll-compensate');
-            document.body.style.removeProperty('--scrollbar-comp');
+            // restaura scroll e remove compensação (apenas se estiver em desktop)
+            const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+            if (isDesktop) {
+                document.body.classList.remove('no-scroll', 'no-scroll-compensate');
+                document.body.style.removeProperty('--scrollbar-comp');
+                if (chatOverlay) { chatOverlay.style.display = 'none'; chatOverlay.setAttribute('aria-hidden', 'true'); }
+                if (mainContent) { mainContent.setAttribute('aria-hidden', 'false'); }
+            }
         }, 600);
     });
 

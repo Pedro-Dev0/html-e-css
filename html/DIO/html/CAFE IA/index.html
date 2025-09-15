@@ -10,13 +10,14 @@
     <link rel="apple-touch-icon" href="img/logo.png">
 </head>
 <body>
+    <a href="#main" class="skip-link">Pular para o conteúdo</a>
     <header class="header">
-        <nav class="nav-bar">
+        <nav class="nav-bar" role="navigation" aria-label="Navegação principal">
             <img class="logo" src="img/logo.png" alt="logo da starbucks">
         </nav>
     </header>
 
-    <main class="container-principal">
+    <main id="main" class="container-principal" role="main">
         <section class="texto-principal">
             <h1>Bem-vindo à Starbucks</h1>
             <h2>Não é apenas café, é <span class="texto-starbucks">Starbucks!</span></h2>
@@ -40,14 +41,16 @@
     </section>
 
     <!-- Ícone de chat flutuante -->
-    <div id="chat-icon" class="chat-icon">
+    <div id="chat-icon" class="chat-icon" role="button" tabindex="0" aria-label="Abrir chat de atendimento">
         <i class="fas fa-comment-dots"></i>
     </div>
+    <!-- Overlay usado em desktop quando o chat abre (acessibilidade/estética) -->
+    <div id="chat-overlay" class="chat-overlay" style="display:none;" aria-hidden="true"></div>
     <!-- Janela do chat -->
-    <section id="chatbot-section" class="chatbot-section" style="display:none;">
+    <section id="chatbot-section" class="chatbot-section" style="display:none;" role="dialog" aria-modal="false" aria-labelledby="chat-title">
         <div class="chat-container">
             <div class="chat-header">
-                <span>Vitoria</span>
+                <span id="chat-title">Vitoria</span>
                 <button id="close-chat" class="close-chat">&times;</button>
             </div>
             <div id="chat-messages" class="chat-messages"></div>

@@ -42,6 +42,15 @@ document.addEventListener('DOMContentLoaded', function() {
         wrapper.appendChild(bubble);
         chatMessages.appendChild(wrapper);
         chatMessages.scrollTop = chatMessages.scrollHeight;
+        toggleHelper();
+    }
+
+    function toggleHelper(){
+        const helper = document.getElementById('chat-helper');
+        if (!helper) return;
+        // hide helper when there's any message bubble
+        const hasBubbles = chatMessages.querySelectorAll('.chat-bubble').length > 0;
+        helper.style.display = hasBubbles ? 'none' : 'block';
     }
 
     function renderMenu(items){
@@ -98,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (chatInput) chatInput.focus();
             chatMessages.innerHTML = '';
             appendBubble('bot', 'Olá! Eu sou seu assistente. Posso mostrar o cardápio, promoções ou receitas.');
+            toggleHelper();
         });
 
         if (closeChat) closeChat.addEventListener('click', ()=>{
@@ -151,6 +161,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 600);
             });
         }
+
+        // proximity detection: when mouse is near the chat icon, add .near for visual cue
+        (function(){
+            const THRESHOLD = 90; // pixels
+            function onMove(e){
+                // ignore touch events / small screens
+                if (window.innerWidth <= 520) return;
+                const rect = chatIcon.getBoundingClientRect();
+                const cx = rect.left + rect.width/2;
+                const cy = rect.top + rect.height/2;
+                const dx = e.clientX - cx;
+                const dy = e.clientY - cy;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist <= THRESHOLD) chatIcon.classList.add('near'); else chatIcon.classList.remove('near');
+            }
+            window.addEventListener('mousemove', onMove);
+            // remove class when leaving window
+            window.addEventListener('mouseout', ()=> chatIcon.classList.remove('near'));
+        })();
     }
 
 });

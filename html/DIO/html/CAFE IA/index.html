@@ -54,17 +54,21 @@
                     <span id="chat-title">Atendimento Starbucks</span>
                     <button id="close-chat" class="close-chat" aria-label="Fechar chat">&times;</button>
                 </div>
-                <div id="chat-messages" class="chat-messages"></div>
-                <div class="chat-quick-options">
-                    <button class="quick-option" data-msg="Ver cardápio completo">Cardápio</button>
-                    <button class="quick-option" data-msg="Promoções">Promoções</button>
-                    <button class="quick-option" data-msg="Receitas">Receitas</button>
-                    <button class="quick-option" data-msg="Contato humano">Atendente</button>
+                <div id="chat-messages" class="chat-messages">
+                    <div id="chat-helper" class="chat-helper">Como posso te ajudar hoje? 😊</div>
                 </div>
-                <form id="chat-form">
-                    <input type="text" id="chat-input" placeholder="Pergunte algo (ex.: cardápio, promoções)..." autocomplete="off" required />
-                    <button type="submit">Enviar</button>
-                </form>
+                <footer class="chat-footer">
+                    <div class="chat-quick-options">
+                        <button class="quick-option" data-msg="Ver cardápio completo">Cardápio</button>
+                        <button class="quick-option" data-msg="Promoções">Promoções</button>
+                        <button class="quick-option" data-msg="Receitas">Receitas</button>
+                        <button class="quick-option" data-msg="Contato humano">Atendente</button>
+                    </div>
+                    <form id="chat-form">
+                        <input type="text" id="chat-input" placeholder="Pergunte algo..." autocomplete="off" required />
+                        <button type="submit" class="send-btn" aria-label="Enviar"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </footer>
             </div>
         </section>
     <script src="scripts.js"></script>

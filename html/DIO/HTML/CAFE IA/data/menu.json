@@ -1,0 +1,43 @@
+{
+  "items": [
+    {
+      "id": "espresso",
+      "name": "Espresso",
+      "price": "R$ 8,00",
+      "size": "Solo",
+      "image": "img/img1.png",
+      "description": "Café espresso intenso e encorpado.",
+      "icon": "fa-solid fa-mug-hot"
+    },
+    {
+      "id": "cappuccino",
+      "name": "Cappuccino",
+      "price": "R$ 12,00",
+      "size": "Tall/Grande",
+      "image": "img/img2.png",
+      "description": "Espresso com leite vaporizado e espuma cremosa.",
+      "icon": "fa-solid fa-coffee"
+    },
+    {
+      "id": "latte",
+      "name": "Latte",
+      "price": "R$ 13,00",
+      "size": "Tall/Grande",
+      "image": "img/img3.png",
+      "description": "Suave e aveludado, com leite e espresso.",
+      "icon": "fa-solid fa-mug-saucer"
+    }
+  ],
+  "promotions": [
+    {
+      "title": "Frappuccino em dobro",
+      "details": "Na compra de 1 Frappuccino leve outro grátis (sexta-feira).",
+      "valid": "Sextas-feiras"
+    },
+    {
+      "title": "Combo Muffin + Espresso",
+      "details": "Combo por R$ 15,00 nas unidades participantes.",
+      "valid": "Válido nas unidades participantes"
+    }
+  ]
+}

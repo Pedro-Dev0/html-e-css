@@ -1,162 +1,8 @@
-// scripts.js - versão limpa e única
+// scripts.js - thumbnail swapping + dynamic menu/promo rendering for local chat
 document.addEventListener('DOMContentLoaded', function() {
-    const chatIcon = document.getElementById('chat-icon');
-    const chatbotSection = document.getElementById('chatbot-section');
-    const closeChat = document.getElementById('close-chat');
-    const chatForm = document.getElementById('chat-form');
-    const chatInput = document.getElementById('chat-input');
-    const chatMessages = document.getElementById('chat-messages');
-    const quickOptions = document.querySelectorAll('.quick-option');
     const thumbnails = document.querySelectorAll('.thumbnail');
     const mainImage = document.querySelector('.imagem-cafe');
     const cafeCircle = document.querySelector('.cafe-circle');
-    const chatOverlay = document.getElementById('chat-overlay');
-    const mainContent = document.querySelector('main');
-
-    if (!chatIcon || !chatbotSection || !closeChat || !chatForm || !chatInput || !chatMessages) {
-        console.warn('Elementos do chat não encontrados — verifique o HTML.');
-        return;
-    }
-
-    function appendMessage(sender, text) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = 'chat-message';
-        msgDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
-        chatMessages.appendChild(msgDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    // Cardápio unificado com ícones (usando Font Awesome classes já carregadas no HTML)
-    const cardapio = {
-        'Espresso': {price: 'R$ 8,00', size: 'Solo', icon: 'fa-solid fa-mug-hot'},
-        'Double Espresso': {price: 'R$ 10,00', size: 'Doppio', icon: 'fa-solid fa-bolt'},
-        'Americano': {price: 'R$ 9,00', size: 'Tall/Grande', icon: 'fa-solid fa-water'},
-        'Cappuccino': {price: 'R$ 12,00', size: 'Tall/Grande', icon: 'fa-solid fa-coffee'},
-        'Latte': {price: 'R$ 13,00', size: 'Tall/Grande', icon: 'fa-solid fa-mug-saucer'},
-        'Flat White': {price: 'R$ 14,00', size: 'Tall/Grande', icon: 'fa-solid fa-cup-togo'},
-        'Mocha': {price: 'R$ 15,00', size: 'Tall/Grande', icon: 'fa-solid fa-chocolate'},
-        'Caramel Macchiato': {price: 'R$ 16,00', size: 'Tall/Grande', icon: 'fa-solid fa-candy-cane'},
-        'Frappuccino': {price: 'R$ 18,00', size: 'Tall/Grande', icon: 'fa-solid fa-cubes'},
-        'Chocolate Quente': {price: 'R$ 14,00', size: 'Tall/Grande', icon: 'fa-solid fa-mug-hot'},
-        'Chá Gelado': {price: 'R$ 10,00', size: 'Tall/Grande', icon: 'fa-solid fa-lemon'},
-        'Chá (Diversos)': {price: 'R$ 9,00', size: 'Tall', icon: 'fa-solid fa-leaf'},
-        'Cookies': {price: 'R$ 7,00', icon: 'fa-solid fa-cookie'},
-        'Muffin': {price: 'R$ 9,00', icon: 'fa-solid fa-bread-slice'},
-        'Sanduíche (Croissant/Wrap)': {price: 'R$ 22,00', icon: 'fa-solid fa-bread-slice'}
-    };
-
-    // Receitas formatadas em multiline para leitura
-    const receitas = {
-        'Latte Caseiro': `1) Prepare um espresso (30ml).
-2) Aqueça 200ml de leite e faça uma espuma a gosto.
-3) Despeje o leite sobre o espresso com cuidado.
-Dica: adicione 10ml de xarope de baunilha para um toque especial.`,
-
-        'Cappuccino Rápido': `1) Prepare um espresso forte (30ml).
-2) Aqueça cerca de 120ml de leite e gere espuma consistente.
-3) Despeje o leite espumado sobre o espresso.
-Finalização: polvilhe cacau em pó ou canela.`,
-
-        'Mocha Simples': `1) Prepare um espresso (30ml).
-2) Misture 20ml de calda de chocolate ao espresso.
-3) Adicione leite quente e mexa bem.
-4) Finalize com chantilly e raspas de chocolate, se desejar.`
-    };
-
-    const promocoes = [
-        'Frappuccino em dobro às sextas-feiras (na compra de 1, leve outro).',
-        'Combo Muffin + Espresso por R$ 15,00 (válido nas unidades participantes).',
-        '20% de desconto em chás às segundas-feiras.'
-    ];
-
-    function formatCardapioFull() {
-        return Object.entries(cardapio).map(([k, v]) => `- <i class="${v.icon}"></i> ${k}: ${v.price}${v.size ? ' (' + v.size + ')' : ''}`).join('\n');
-    }
-
-    function formatTamanhos() {
-        return 'Tamanhos comuns: Tall (~350ml), Grande (~470ml), Venti (~590ml). Preços variam por tamanho e local.';
-    }
-
-    function localAIResponse(msg) {
-        const m = msg.toLowerCase();
-        if (/(ver cardápio completo|cardápio completo|cardapio completo)/.test(m)) return `CARDÁPIO COMPLETO:\n${formatCardapioFull()}`;
-        if (/(card[aá]pio|menu|cardápio|pre[cç]o|quanto custa|valor)/.test(m)) return `CARDÁPIO (resumo):\n- Espresso: R$ 8,00\n- Cappuccino: R$ 12,00\n- Latte: R$ 13,00\n(Para ver o cardápio completo, clique em 'Cardápio completo').`;
-        if (/(promo|descont|oferta|promoções|promocoes)/.test(m)) return `PROMOÇÕES ATUAIS:\n- ${promocoes.join('\n- ')}`;
-        if (/(receita|receitas|como fazer|preparo)/.test(m)) {
-            // formata as receitas com quebras de linha para melhor leitura
-            return 'RECEITAS POPULARES:\n' + Object.entries(receitas).map(([k, v]) => `\n${k}:\n${v}`).join('\n');
-        }
-    // opção de 'tamanhos' removida — direcionamos o usuário para ver o cardápio ou perguntar preços de itens
-        if (/(oi|ol[aá]|bom dia|boa tarde|boa noite)/.test(m)) return 'Olá! Eu sou a Vitoria, em que posso ajudar? 😊 — Posso mostrar o cardápio, promoções ou uma receita.';
-        // procura por item específico (sem acento/maiusc)
-        const itemKey = Object.keys(cardapio).find(k => m.includes(k.toLowerCase()));
-        if (itemKey) {
-            const it = cardapio[itemKey];
-            return `${'<i class="' + it.icon + '"></i>'} ${itemKey}: ${it.price}${it.size ? ' (' + it.size + ')' : ''}`;
-        }
-        return 'Posso ajudar com o cardápio, promoções ou receitas — qual prefere?';
-    }
-
-    chatIcon.addEventListener('click', () => {
-        chatbotSection.style.display = 'block';
-        chatIcon.style.visibility = 'hidden';
-        chatMessages.innerHTML = '';
-        // se desktop (largura >= 768px) ativamos overlay e bloqueio de scroll
-        const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-        if (isDesktop) {
-            // desabilita scroll da página e compensa scrollbar para evitar shift
-            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-            document.body.style.setProperty('--scrollbar-comp', scrollbarWidth + 'px');
-            document.body.classList.add('no-scroll', 'no-scroll-compensate');
-            if (chatOverlay) { chatOverlay.style.display = 'block'; chatOverlay.setAttribute('aria-hidden', 'false'); }
-            if (mainContent) { mainContent.setAttribute('aria-hidden', 'true'); }
-        }
-        // foco no input para acessibilidade
-        setTimeout(() => { chatInput.focus(); }, 120);
-        appendMessage('Vitoria', 'Olá! Eu sou a Vitoria, sua assistente do café. Como posso ajudar?');
-    });
-
-    closeChat.addEventListener('click', () => {
-        appendMessage('Vitoria', 'Até logo! ☕');
-        setTimeout(() => {
-            chatbotSection.style.display = 'none';
-            chatIcon.style.visibility = 'visible';
-            // restaura scroll e remove compensação (apenas se estiver em desktop)
-            const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-            if (isDesktop) {
-                document.body.classList.remove('no-scroll', 'no-scroll-compensate');
-                document.body.style.removeProperty('--scrollbar-comp');
-                if (chatOverlay) { chatOverlay.style.display = 'none'; chatOverlay.setAttribute('aria-hidden', 'true'); }
-                if (mainContent) { mainContent.setAttribute('aria-hidden', 'false'); }
-            }
-        }, 600);
-    });
-
-    chatForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const text = chatInput.value.trim();
-        if (!text) return;
-        appendMessage('Você', text);
-        chatInput.value = '';
-        // indicador de digitando
-        const typing = document.createElement('div');
-        typing.className = 'chat-typing';
-        typing.innerText = 'Vitoria está digitando...';
-        chatMessages.appendChild(typing);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-        const reply = localAIResponse(text);
-        setTimeout(() => {
-            typing.remove();
-            appendMessage('Vitoria', reply);
-        }, 700);
-    });
-
-    quickOptions.forEach(btn => btn.addEventListener('click', () => {
-        const msg = btn.getAttribute('data-msg');
-        appendMessage('Você', msg);
-        const reply = localAIResponse(msg);
-        setTimeout(() => appendMessage('Vitoria', reply), 200);
-    }));
 
     const imgMap = {
         'thumb1.png': {img: 'img1.png', color: '#129961'},
@@ -173,5 +19,138 @@ Finalização: polvilhe cacau em pó ou canela.`,
             if (cafeCircle) { cafeCircle.style.borderColor = mapped.color; cafeCircle.style.background = mapped.color; }
         }
     }));
+
+    /* --- Chat local fallback logic with dynamic JSON card rendering --- */
+    const chatIcon = document.getElementById('chat-icon');
+    const chatbotSection = document.getElementById('chatbot-section');
+    const chatOverlay = document.getElementById('chat-overlay');
+    const closeChat = document.getElementById('close-chat');
+    const chatMessages = document.getElementById('chat-messages');
+    const quickOptions = document.querySelectorAll('.quick-option');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+
+    function appendBubble(type, content){
+        // type: 'bot' or 'user'
+        const wrapper = document.createElement('div'); wrapper.className = `chat-bubble ${type}`;
+        const bubble = document.createElement('div'); bubble.className = 'bubble';
+        if (typeof content === 'string') {
+            bubble.innerHTML = content;
+        } else if (content instanceof Node) {
+            bubble.appendChild(content);
+        }
+        wrapper.appendChild(bubble);
+        chatMessages.appendChild(wrapper);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function renderMenu(items){
+        if (!items || !items.length) { appendBubble('bot','Nenhum item encontrado.'); return; }
+        const list = document.createElement('div'); list.className = 'chat-card-list';
+        items.forEach(item=>{
+            const card = document.createElement('div'); card.className = 'chat-card';
+            const img = document.createElement('img'); img.src = item.image; img.alt = item.name;
+            const meta = document.createElement('div'); meta.className = 'card-meta';
+            meta.innerHTML = `<div class="card-title">${item.name} <span class="card-price">${item.price}</span></div><div class="card-desc">${item.description}</div>`;
+            const cta = document.createElement('button'); cta.className = 'card-cta'; cta.textContent = 'Pedir';
+            cta.addEventListener('click', ()=>{
+                appendBubble('user', `Quero pedir: ${item.name}`);
+                setTimeout(()=> appendBubble('bot', 'Pedido recebido! Um atendente irá confirmar.'), 300);
+            });
+            card.appendChild(img); card.appendChild(meta); card.appendChild(cta);
+            list.appendChild(card);
+        });
+        // wrap list inside a bot bubble
+        appendBubble('bot', list);
+    }
+
+    function renderPromotions(promos){
+        if (!promos || !promos.length) { appendBubble('bot','Sem promoções no momento.'); return; }
+        const list = document.createElement('div'); list.className = 'chat-card-list';
+        promos.forEach(p=>{
+            const card = document.createElement('div'); card.className = 'chat-card';
+            const meta = document.createElement('div'); meta.className = 'card-meta';
+            meta.innerHTML = `<div class="card-title">${p.title}</div><div class="card-desc">${p.details}</div><div style="font-size:0.85rem;color:#666;margin-top:6px">Validade: ${p.valid}</div>`;
+            card.appendChild(meta);
+            list.appendChild(card);
+        });
+        appendBubble('bot', list);
+    }
+
+    function fetchMenuJSON(){
+        return fetch('data/menu.json').then(r=>{
+            if (!r.ok) throw new Error('Network response not ok');
+            return r.json();
+        });
+    }
+
+    function localReplyText(msg){
+        const m = msg.toLowerCase();
+        if (/receit|como fazer|preparo/.test(m)) return `RECEITAS\nLatte Caseiro: espresso + leite vaporizado + xarope.`;
+        if (/atendente|contato/.test(m)) return `Vou transferir para um atendente humano. Aguarde...`;
+        return null; // other cases will be handled (menu/promotions) by fetch
+    }
+
+    if (chatIcon && chatbotSection){
+        chatIcon.addEventListener('click', ()=>{
+            chatbotSection.style.display = 'block';
+            if (chatOverlay) chatOverlay.style.display = 'block';
+            if (chatInput) chatInput.focus();
+            chatMessages.innerHTML = '';
+            appendBubble('bot', 'Olá! Eu sou seu assistente. Posso mostrar o cardápio, promoções ou receitas.');
+        });
+
+        if (closeChat) closeChat.addEventListener('click', ()=>{
+            chatbotSection.style.display = 'none';
+            if (chatOverlay) chatOverlay.style.display = 'none';
+        });
+
+        quickOptions.forEach(b=> b.addEventListener('click', ()=>{
+            const msg = (b.getAttribute('data-msg')||'').trim();
+            appendBubble('user', msg);
+            const lower = msg.toLowerCase();
+            if (/card[aá]pio|menu/.test(lower)){
+                appendBubble('bot','Carregando o cardápio...');
+                fetchMenuJSON().then(data=> renderMenu(data.items)).catch(()=> appendMessage('Starbucks','Não foi possível carregar o cardápio.'));
+                return;
+            }
+            if (/promo|descont|oferta/.test(lower)){
+                appendBubble('bot','Carregando promoções...');
+                fetchMenuJSON().then(data=> renderPromotions(data.promotions)).catch(()=> appendMessage('Starbucks','Não foi possível carregar as promoções.'));
+                return;
+            }
+            const text = localReplyText(msg) || 'Desculpe, posso ajudar com cardápio, promoções ou receitas.';
+            setTimeout(()=> appendBubble('bot', text), 300);
+        }));
+
+        if (chatForm){
+            chatForm.addEventListener('submit', e=>{
+                e.preventDefault();
+                const t = (chatInput.value||'').trim();
+                if (!t) return;
+                appendBubble('user', t);
+                chatInput.value = '';
+                appendBubble('bot', '...');
+                setTimeout(()=>{
+                    // remove the last bubble (placeholder '...')
+                    const last = chatMessages.querySelectorAll('.chat-bubble');
+                    if (last.length) last[last.length-1].remove();
+                    const lower = t.toLowerCase();
+                    if (/card[aá]pio|menu/.test(lower)){
+                        appendBubble('bot','Carregando o cardápio...');
+                        fetchMenuJSON().then(data=> renderMenu(data.items)).catch(()=> appendBubble('bot','Não foi possível carregar o cardápio.'));
+                        return;
+                    }
+                    if (/promo|descont|oferta/.test(lower)){
+                        appendBubble('bot','Carregando promoções...');
+                        fetchMenuJSON().then(data=> renderPromotions(data.promotions)).catch(()=> appendBubble('bot','Não foi possível carregar as promoções.'));
+                        return;
+                    }
+                    const text = localReplyText(t) || 'Desculpe, posso ajudar com cardápio, promoções ou receitas.';
+                    appendBubble('bot', text);
+                }, 600);
+            });
+        }
+    }
 
 });

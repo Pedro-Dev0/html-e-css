@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="img/logo.png">
-    <link rel="apple-touch-icon" href="img/logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png">    
 </head>
 <body>
     <a href="#main" class="skip-link">Pular para o conteúdo</a>
@@ -23,7 +23,7 @@
             <h2>Não é apenas café, é <span class="texto-starbucks">Starbucks!</span></h2>
             <p>Venha e prove mais que um café, prove uma experiência única que só a Starbucks pode oferecer.</p>
             <br>
-            <h2>Prove <strong><span class="texto-starbucks2">Starbucks... <i class="fas fa-mug-hot"></i></span></strong></h2>
+            <h2>Prove <strong><span class="texto-starbucks2">Starbucks... <span class="coffe"><i class="fas fa-mug-hot"></i></span></span></strong></h2>
             <br>
             <button class="btn-provar">Provar agora</button>
         </section>
@@ -40,32 +40,33 @@
         <img class="thumbnail" src="img/thumb3.png" alt="thumbnail do copo de café rosa-choque">
     </section>
 
-    <!-- Ícone de chat flutuante -->
-    <div id="chat-icon" class="chat-icon" role="button" tabindex="0" aria-label="Abrir chat de atendimento">
-        <i class="fas fa-comment-dots"></i>
-    </div>
-    <!-- Overlay usado em desktop quando o chat abre (acessibilidade/estética) -->
-    <div id="chat-overlay" class="chat-overlay" style="display:none;" aria-hidden="true"></div>
-    <!-- Janela do chat -->
-    <section id="chatbot-section" class="chatbot-section" style="display:none;" role="dialog" aria-modal="false" aria-labelledby="chat-title">
-        <div class="chat-container">
-            <div class="chat-header">
-                <span id="chat-title">Vitoria</span>
-                <button id="close-chat" class="close-chat">&times;</button>
-            </div>
-            <div id="chat-messages" class="chat-messages"></div>
-            <div class="chat-quick-options">
-                <button class="quick-option" data-msg="Quero ver o cardápio">Ver cardápio</button>
-                <button class="quick-option" data-msg="Ver cardápio completo">Cardápio completo</button>
-                <button class="quick-option" data-msg="Receitas populares">Receitas</button>
-                <button class="quick-option" data-msg="Tem promoções hoje?">Promoções</button>
-            </div>
-            <form id="chat-form">
-                <input type="text" id="chat-input" placeholder="Pergunte sobre o cardápio ou preços..." autocomplete="off" required />
-                <button type="submit">Enviar</button>
-            </form>
+        <!-- Ícone de chat local (fallback) -->
+        <div id="chat-icon" class="chat-icon" role="button" tabindex="0" aria-label="Abrir chat de atendimento">
+            <i class="fas fa-comment-dots"></i>
         </div>
-    </section>
+        <!-- Overlay para modalizar o chat -->
+        <div id="chat-overlay" class="chat-overlay" style="display:none;" aria-hidden="true"></div>
+        <!-- Janela do chat local -->
+        <section id="chatbot-section" class="chatbot-section" style="display:none;" role="dialog" aria-modal="false" aria-labelledby="chat-title">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <img src="img/logo.png" alt="Starbucks" class="chat-logo" />
+                    <span id="chat-title">Atendimento Starbucks</span>
+                    <button id="close-chat" class="close-chat" aria-label="Fechar chat">&times;</button>
+                </div>
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-quick-options">
+                    <button class="quick-option" data-msg="Ver cardápio completo">Cardápio</button>
+                    <button class="quick-option" data-msg="Promoções">Promoções</button>
+                    <button class="quick-option" data-msg="Receitas">Receitas</button>
+                    <button class="quick-option" data-msg="Contato humano">Atendente</button>
+                </div>
+                <form id="chat-form">
+                    <input type="text" id="chat-input" placeholder="Pergunte algo (ex.: cardápio, promoções)..." autocomplete="off" required />
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
     <script src="scripts.js"></script>
 </body>
 </html>

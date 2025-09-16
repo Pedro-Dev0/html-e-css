@@ -1,196 +1,44 @@
-.chat-quick-options {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background: #f7f7f7;
-    border-bottom: 1px solid #eee;
-}
-.quick-option {
-    background: #129961;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    margin: 0 2px;
-    transition: background 0.3s;
-}
-.quick-option:hover {
-    background: #0a5c3d;
-}
-/* Chat flutuante */
+/* Chat local removido: todas as regras relacionadas ao chat foram limpas */
+/* --- Chat local (fallback) styles --- */
 .chat-icon {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     background: #129961;
     color: #fff;
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
     cursor: pointer;
-    font-size: 2rem;
-    z-index: 1000;
-    transition: background 0.3s;
+    z-index: 1200;
 }
-.chat-icon:hover {
-    background: #0a5c3d;
-}
-
 .chatbot-section {
     position: fixed;
     bottom: 90px;
-    right: 36px;
-    width: 420px; /* maior para comportar promoções */
+    right: 20px;
+    width: 360px;
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-    z-index: 1001;
-    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    z-index: 1201;
     overflow: hidden;
-    animation: fadeIn 0.3s;
 }
-
-/* Overlay para desktop quando o chat fica modal */
-.chat-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 1000;
-    backdrop-filter: blur(2px);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    height: 520px; /* altura aumentada para mostrar cards/promoções */
-}
-.chat-header {
-    background: #129961;
-    color: #fff;
-    padding: 12px 16px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1rem;
-}
-.close-chat {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-.chat-messages {
-    flex: 1;
-    padding: 12px;
-    overflow-y: auto;
-    background: #f7f7f7;
-    font-size: 0.95rem;
-}
-
-/* Responsividade: reduzir chat em telas pequenas */
-@media (max-width: 520px) {
-    .chatbot-section {
-        right: 16px;
-        bottom: 70px;
-        width: 95%;
-    /* central container para enquadramento e max-width */
-    .container-principal {
-        flex-direction: column;
-        align-items: center; /* centraliza horizontalmente */
-        gap: 18px;
-        padding: 14px 12px;
-        max-width: 480px;
-        margin: 0 auto;
-    }
-    }
-}
-
-/* Estilos de comportamento por plataforma
-   - Desktop: chat abre como modal com overlay e bloqueio de scroll (via .no-scroll)
-   - Mobile: chat aparece como painel flutuante, sem overlay, rolagem permitida
-*/
-@media (min-width: 768px) {
-    /* desktop: mostrar overlay e garantir que .chatbot-section seja modal */
-    .chat-overlay { display: block; }
-    .chatbot-section { bottom: 80px; right: 40px; }
-}
-@media (max-width: 767px) {
-    /* mobile: overlay invisível e sem efeito, manter rolagem */
-    .chat-overlay { display: none !important; }
-}
-.chat-message {
-    margin-bottom: 10px;
-    padding: 6px 10px;
-    border-radius: 8px;
-    background: #e9f5ee;
-}
-.chat-message strong {
-    color: #129961;
-}
-
-/* Indicador de digitando */
-.chat-typing {
-    padding: 8px 10px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    background: #fff3e0;
-    color: #7a4b00;
-    font-style: italic;
-}
-/* Quando o chat estiver aberto, prevenir o scroll da página sem causar 'shift' */
-
-/* Compensação para evitar shift quando scrollbar some */
-.no-scroll-compensate {
-    padding-right: var(--scrollbar-comp, 0px) !important;
-}
-
-/* Bloqueio de scroll somente para desktop (largura mínima de 768px) */
-@media (min-width: 768px) {
-    .no-scroll {
-        overflow: hidden !important;
-        height: 100vh; /* fixa altura para evitar problemas de layout */
-    }
-}
-#chat-form {
-    display: flex;
-    border-top: 1px solid #eee;
-    padding: 10px;
-    background: #fff;
-}
-#chat-input {
-    flex: 1;
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    margin-right: 8px;
-}
-#chat-form button {
-    background: #129961;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-#chat-form button:hover {
-    background: #0a5c3d;
-}
+.chat-header { display:flex; align-items:center; gap:8px; padding:10px; background:#129961; color:#fff; }
+.chat-logo { width:28px; height:28px; border-radius:4px; }
+.chat-messages { max-height:480px; overflow-y:auto; padding:10px; background:#f7f7f7; }
+.chat-message { margin-bottom:8px; padding:8px; border-radius:8px; background:#eaf7ee; }
+.chat-quick-options { display:flex; gap:6px; padding:10px; background:#fff; border-top:1px solid #eee; }
+.quick-option { background:#129961; color:#fff; border:none; padding:8px 10px; border-radius:8px; cursor:pointer; }
+.chat-typing { padding:8px; font-style:italic; color:#666; }
+#chat-form { display:flex; gap:8px; padding:10px; background:#fff; border-top:1px solid #eee; }
+#chat-input { flex:1; padding:8px; border-radius:8px; border:1px solid #ccc; }
+.close-chat { background:none; border:none; color:#fff; font-size:20px; cursor:pointer; margin-left:auto; }
+.chat-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:1200; display:none; }
+@media (max-width:520px){ .chatbot-section{ right:10px; left:10px; width:auto; bottom:24px; border-radius:10px; } .chat-messages{max-height:60vh;} .chat-quick-options{flex-direction:column;} }
 * {
     margin: 0;
     padding: 0;
@@ -225,7 +73,7 @@ body, button, input, textarea {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-button:focus, input:focus, .quick-option:focus, .close-chat:focus, .chat-icon:focus {
+button:focus, input:focus, .quick-option:focus {
     outline: 3px solid rgba(18,153,97,0.24);
     outline-offset: 2px;
 }
@@ -330,17 +178,22 @@ p {
 }
 
 .texto-starbucks {
-    color: #129961;
+    color: #1ab876;
     font-weight: bold;
     font-size: 28px;
     background-color: rgba(255, 255, 255, 0.788);
-    padding: 3px;
+    padding: 2px;
     border-radius: 5px;
 }
 
 .texto-starbucks2 {
-    color: #129961;
+    color: #1ed68a;
     font-weight: bold;
+    font-size: 28px;
+}
+
+.coffe {
+    color: #f5f5f5;
     font-size: 28px;
 }
 
@@ -417,4 +270,70 @@ body::-webkit-scrollbar {
 }
 
 /* Mantém acessibilidade: foco e outline não são afetados */
+
+/* Card styles for visual menu items in chat replies */
+.chat-card-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 8px 6px;
+}
+.chat-card {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #fff;
+    color: #111;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.chat-card img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.chat-card .card-meta {
+    flex: 1;
+}
+.chat-card .card-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    display:flex; justify-content:space-between; align-items:center;
+}
+.chat-card .card-desc {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 6px;
+}
+.chat-card .card-price {
+    font-weight: 700;
+    color: #1e8449; /* green accent */
+}
+.chat-card .card-cta {
+    background: #1e8449;
+    color: #fff;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: none;
+}
+
+@media (min-width:520px){
+    .chat-card-list{ grid-template-columns: 1fr; }
+}
+
+/* Chat bubble styles (bot and user) */
+.chat-bubble { display: block; margin: 8px 0; max-width: 100%; }
+.chat-bubble .bubble { display: inline-block; padding: 10px 12px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.chat-bubble.bot { text-align: left; }
+.chat-bubble.bot .bubble { background: #ffffff; color: #111; border-top-left-radius: 4px; }
+.chat-bubble.user { text-align: right; }
+.chat-bubble.user .bubble { background: #129961; color: #fff; border-top-right-radius: 4px; }
+
+/* When a bot bubble contains cards, remove inner bubble background so cards look like part of the message */
+.chat-bubble.bot .bubble .chat-card { background: #fff; box-shadow: none; }
+
 

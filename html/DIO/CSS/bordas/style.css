@@ -24,7 +24,42 @@ body {
 
     short hand
     border-image: url('caminho-da-imagem') 30 round outset 5px;
+
+
+    agora ensina a colocar font
     
     
     */
+
+    @font-face {
+        font-family: 'MinhaFonte';
+        src: local() url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * {
+        font-family: "Roboto", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: weight 100;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+    }
 }
+
+/*
+Essa parte de font style é mais a normal, italic, oblique.
+
+
+font-weight: só para engrossar a fonte, de 100 a 900
+
+font variant é small caps e font variation settings é para fontes variáveis
+
+font stretch é para esticar a fonte e só funciona em algumas fontes que tem essa opção
+
+line height é para espaçamento entre linhas, letter spacing é para espaçamento entre letras e word spacing é para espaçamento entre palavras
+
+
+
+
+*/

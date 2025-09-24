@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+text-transform: lowercase;  deixa todo o texto em minusculo
+text-transform: uppercase;  deixa todo o texto em maiusculo 
+text-transform: capitalize;  deixa a primeira letra de cada palavra em maiusculo
+text-transform: none;  deixa o texto como foi digitado]
+text-transform: inherit;  herda a propriedade do elemento pai
+
+
+
+
+
+*/

@@ -1,0 +1,30 @@
+/*
+Falar mais sobre bordas
+
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /*
+    consegue colocar imagem na borda com border-image
+    3. border-image: url('caminho-da-imagem') 30 round; / a imagem só fica nas bordas(ponta da borda)
+    4. border-image-slice: 30; corta a imagem e a  estica sobre a borda e colocando fill, fica com a repetição da imagem dentro da borda
+
+    nessa width seria só para largura do item!
+
+    repeat, vario tipos de repeat para a imagem da borda
+
+    border image outset 5px; / aumenta a borda para fora do elemento
+
+    short hand
+    border-image: url('caminho-da-imagem') 30 round outset 5px;
+    
+    
+    */
+}

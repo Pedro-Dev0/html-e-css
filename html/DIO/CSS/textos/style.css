@@ -5,12 +5,138 @@
 }
 
 /*
+
+sobre textos...
+
 text-transform: lowercase;  deixa todo o texto em minusculo
 text-transform: uppercase;  deixa todo o texto em maiusculo 
 text-transform: capitalize;  deixa a primeira letra de cada palavra em maiusculo
 text-transform: none;  deixa o texto como foi digitado]
 text-transform: inherit;  herda a propriedade do elemento pai
 
+text-align: left;  alinha o texto a esquerda
+text-align: right;  alinha o texto a direita
+text-align: center;  alinha o texto ao centro
+text-align: justify;  justifica o texto
+text-align: inherit;  herda a propriedade do elemento pai
+text-align: start;  alinha o texto ao inicio
+text-align: end;  alinha o texto ao final
+
+text-decoration: none;  remove qualquer decoração do texto
+text-decoration: underline;  adiciona um sublinhado ao texto
+text-decoration: overline;  adiciona uma linha acima do texto
+text-decoration: line-through;  adiciona uma linha no meio do texto
+text-decoration: blink;  faz o texto piscar (não é suportado em todos os navegadores)
+text-decoration: inherit;  herda a propriedade do elemento pai
+text-decoration: initial;  aplica o valor padrão do navegador
+text-decoration: unset;  remove qualquer decoração do texto, herdando ou aplicando o valor padrão do navegador
+text-decoration: wavy;  adiciona uma linha ondulada ao texto (não é suportado em todos os navegadores)
+text-decoration: solid;  adiciona uma linha sólida ao texto
+text-decoration: dashed;  adiciona uma linha tracejada ao texto
+text-decoration: dotted;  adiciona uma linha pontilhada ao texto
+text-decoration: double;  adiciona uma linha dupla ao texto
+text-decoration: groove;  adiciona uma linha com efeito de relevo ao texto
+
+text decoration-style: solid;  define o estilo da decoração do texto como sólido
+text decoration-style: double;  define o estilo da decoração do texto como duplo
+text decoration-style: dotted;  define o estilo da decoração do texto como pontilhado
+text decoration-style: dashed;  define o estilo da decoração do texto como tracejado
+
+text decoration-color: red;  define a cor da decoração do texto como vermelho
+text decoration-color: blue;  define a cor da decoração do texto como azul
+text decoration-thickness: 2px;  define a espessura da decoração do texto como 2 pixels
+
+
+text-indent: 20px;  define a indentação do texto como 20 pixels
+text-indent: 5%;  define a indentação do texto como 5% da largura do elemento pai
+text-indent: 0;  remove a indentação do texto
+text-indent: inherit;  herda a propriedade do elemento pai
+text-indent: initial;  aplica o valor padrão do navegador
+
+letter-spacing: 2px;  define o espaçamento entre letras como 2 pixels
+letter-spacing: 0;  remove o espaçamento entre letras
+letter-spacing: normal;  aplica o valor padrão do navegador
+letter-spacing: inherit;  herda a propriedade do elemento pai
+
+word-spacing: 10px;  define o espaçamento entre palavras como 10 pixels
+word-spacing: 0;  remove o espaçamento entre palavras
+word-spacing: normal;  aplica o valor padrão do navegador
+word-spacing: inherit;  herda a propriedade do elemento pai
+word-break: normal;  quebra a palavra no final da linha
+word-break: break-all;  quebra a palavra em qualquer lugar
+
+
+white-space: normal;  quebra o texto automaticamente
+white-space: nowrap;  não quebra o texto automaticamente
+white-space: pre;  mantém os espaços em branco e quebras de linha
+white-space: pre-wrap;  mantém os espaços em branco e quebras de linha, mas quebra o texto automaticamente
+white-space: pre-line;  mantém as quebras de linha, mas remove os espaços em branco extras
+
+word-wrap: normal;  quebra a palavra no final da linha
+word-wrap: break-word;  quebra a palavra em qualquer lugar
+word-wrap: inherit;  herda a propriedade do elemento pai
+word-wrap: initial;  aplica o valor padrão do navegador
+word-wrap: unset;  remove qualquer quebra de palavra, herdando ou aplicando o valor padrão do navegador
+
+word-break: normal;  quebra a palavra no final da linha
+word-break: break-all;  quebra a palavra em qualquer lugar
+word-break: keep-all;  não quebra a palavra
+word-break: break-word;  quebra a palavra em qualquer lugar, mas mantém as palavras inteiras quando possível
+word-break: inherit;  herda a propriedade do elemento pai
+
+writing-mode: horizontal-tb;  define a direção do texto como horizontal, da esquerda para a direita
+writing-mode: vertical-rl;  define a direção do texto como vertical, da direita para a esquerda
+writing-mode: vertical-lr;  define a direção do texto como vertical, da esquerda para a direita
+writing-mode: sideways-rl;  define a direção do texto como horizontal, da direita para a esquerda, mas com as letras giradas 90 graus
+writing-mode: sideways-lr;  define a direção do texto como horizontal, da esquerda para a direita, mas com as letras giradas 90 graus
+writing-mode: inherit;  herda a propriedade do elemento pai
+
+text-overflow: clip;  corta o texto que ultrapassa o limite do elemento
+text-overflow: ellipsis;  adiciona reticências (...) ao final do texto que ultrapassa o limite do elemento
+text-overflow: string;  adiciona uma string personalizada ao final do texto que ultrapassa o limite do elemento
+text-overflow: inherit;  herda a propriedade do elemento pai
+text-overflow: initial;  aplica o valor padrão do navegador
+text-overflow: unset;  remove qualquer tratamento de estouro de texto, herdando ou aplicando o valor padrão do navegador
+text-overflow: fade;  adiciona um efeito de desvanecimento ao final do texto que ultrapassa o limite do elemento (não é suportado em todos os navegadores)
+
+box-shadow: 2px 2px 5px rgba(0,0,0,0.3);  adiciona uma sombra ao redor do elemento
+box-shadow: none;  remove a sombra ao redor do elemento
+box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3);  adiciona uma sombra interna ao elemento
+box-shadow: 0 0 10px rgba(0,0,0,0.5);  adiciona uma sombra ao redor do elemento com um desfoque maior
+
+drop-shadow: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));  adiciona uma sombra ao redor do elemento
+drop-shadow: none;  remove a sombra ao redor do elemento
+drop-shadow: drop-shadow(0 0 10px rgba(0,0,0,0.5));  adiciona uma sombra ao redor do elemento com um desfoque maior
+drop-shadow: drop-shadow(2px 2px 5px rgba(0,0,0,0.3)) drop-shadow(0 0 10px rgba(0,0,0,0.5));  adiciona duas sombras ao redor do elemento
+
+text-shadow: 2px 2px 5px rgba(0,0,0,0.3);  adiciona uma sombra ao texto
+text-shadow: none;  remove a sombra do texto
+text-shadow: 0 0 10px rgba(0,0,0,0.5);  adiciona uma sombra ao texto com um desfoque maior
+text-shadow: 2px 2px 5px rgba(0,0,0,0.3), 0 0 10px rgba(0,0,0,0.5);  adiciona duas sombras ao texto
+text-shadow: inherit;  herda a propriedade do elemento pai
+
+opacity: 1;  define a opacidade do elemento como 100%
+opacity: 0;  define a opacidade do elemento como 0%
+opacity: 0.5;  define a opacidade do elemento como 50%
+
+overflow: visible;  o conteúdo que ultrapassa o limite do elemento é visível
+overflow: hidden;  o conteúdo que ultrapassa o limite do elemento é cortado
+overflow: scroll;  o conteúdo que ultrapassa o limite do elemento é cortado, mas uma barra de rolagem é adicionada
+overflow: auto;  o conteúdo que ultrapassa o limite do elemento é cortado, mas
+uma barra de rolagem é adicionada se necessário
+overflow: inherit;  herda a propriedade do elemento pai
+
+overflow-x: visible;  o conteúdo que ultrapassa o limite do elemento na horizontal é visível
+overflow-x: hidden;  o conteúdo que ultrapassa o limite do elemento na horizontal é cortado
+overflow-x: scroll;  o conteúdo que ultrapassa o limite do elemento na horizontal é cort
+o, mas uma barra de rolagem é adicionada
+overflow-x: auto;  o conteúdo que ultrapassa o limite do elemento na horizontal é cort
+o, mas uma barra de rolagem é adicionada se necessário
+
+overflow-y: visible;  o conteúdo que ultrapassa o limite do elemento na vertical é visível
+overflow-y: hidden;  o conteúdo que ultrapassa o limite do elemento na vertical é cortado
+overflow-y: scroll;  o conteúdo que ultrapassa o limite do elemento na vertical é cortado, mas uma barra de rolagem é adicionada
+overflow-y: auto;  o conteúdo que ultrapassa o limite do elemento na vertical é cortado, mas uma barra de rolagem é adicionada se necessário
 
 
 

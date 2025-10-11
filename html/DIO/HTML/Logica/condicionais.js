@@ -31,4 +31,23 @@ if(nivelDeFome == 1) {
 }
 
 
-// switchs 
+// switch case da para ser feito com numeros como:
+// case 1, 2 e etc...
+
+let fruta = 1
+
+switch (fruta) {
+    case 1:
+        console.log("vitamina de banana")
+    break
+    case "Laranja":
+        console.log("suco de laranja")
+    break
+    case "Abacaxi":
+        console.log("suco de abacaxi")
+    break
+    default:
+        console.log("Nenhum suco, vou é tomar leite da caixa mesmo!")
+
+
+}

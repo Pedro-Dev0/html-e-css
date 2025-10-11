@@ -49,3 +49,41 @@ console.log(pokemon);
 //pop apaga o último item do array
 //shift apaga o primeiro item do array
 //splice apaga um item específico do array
+
+
+// como fazer matrizes
+let matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+console.log(matriz[0][0]); // 1 - linha 0, coluna 0
+console.log(matriz[1][1]); // 5 - linha 1, coluna 1
+console.log(matriz[2][2]); // 9 - linha 2, coluna 2
+console.log(matriz[0][1]); // 2 - linha 0, coluna 1
+
+// matriz de objetos
+let matrizObjetos = [
+    { nome: "João", idade: 30 },
+    { nome: "Maria", idade: 25 },
+    { nome: "Pedro", idade: 35 }
+];
+
+console.log(matrizObjetos[0]["nome"]); // João
+console.log(matrizObjetos[0]["idade"]); // 30
+
+//crie matriz de objetos com colunas e linhas
+let matrizPessoas = [
+    { nome: "Ana", idade: 28, cidade: "São Paulo" },
+    { nome: "Bruno", idade: 32, cidade: "Rio de Janeiro" },
+    { nome: "Carla", idade: 24, cidade: "Belo Horizonte" }
+];
+console.log(matrizPessoas[1]["nome"]); // Bruno
+console.log(matrizPessoas[1]["idade"]); // 32
+console.log(matrizPessoas[1]["cidade"]); // Rio de Janeiro
+console.log(matrizPessoas[2]["nome"]); // Carla
+console.log(matrizPessoas[2]["idade"]); // 24
+console.log(matrizPessoas[2]["cidade"]); // Belo Horizonte
+console.log(matrizPessoas[0]["nome"]); // Ana
+console.log(matrizPessoas[0]["idade"]); // 28
+console.log(matrizPessoas[0]["cidade"]); // São Paulo

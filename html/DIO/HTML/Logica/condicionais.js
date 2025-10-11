@@ -18,3 +18,14 @@ if(possuiOvos) {
 } else {
     console.log("Comprar ovos e leite")
 }
+
+
+let nivelDeFome = 3
+
+if(nivelDeFome == 1) {
+    console.log("Pouca fome")
+} else if(nivelDeFome == 2) {
+    console.log("Muita fome")
+} else {
+    console.log("Comeria até os movéis")
+}

@@ -88,6 +88,7 @@ console.log(matrizPessoas[0]["nome"]); // Ana
 console.log(matrizPessoas[0]["idade"]); // 28
 console.log(matrizPessoas[0]["cidade"]); // São Paulo
 
+
 let timePokemom = [
     ["Pikachu", "M", "level 1"],
     ["Chamander", "M", "level 10"],
@@ -99,3 +100,15 @@ console.log(timePokemom[0]) //pega toda a coluna
 console.log(timePokemom[0][0]) // nome
 console.log(timePokemom[0][1]) // pega a primeira coluna(0) e segundo item(1) sexualidade;
 console.log(timePokemom[0][2]) // level
+
+let pessoas = [
+    ["Ana", "28", "São Paulo"],
+    ["Bruno", "32", "Goias"]
+]
+
+let pessoasLegais = [
+    {nome: "Ana", idade: "28", cidade: "São Paulo"}
+]
+
+console.log(pessoas[0][2])
+console.log(pessoasLegais[0]["cidade"])

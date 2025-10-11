@@ -90,10 +90,10 @@ console.log(matrizPessoas[0]["cidade"]); // São Paulo
 
 
 let timePokemom = [
-    ["Pikachu", "M", "level 1"],
-    ["Chamander", "M", "level 10"],
-    ["Bulbasaro", "F", "level 32"],
-    ["Raichu", "F", "level 100"],
+    ["Pikachu", " M ", "level 1"],
+    ["Chamander", " M ", "level 10"],
+    ["Bulbasaro", " F ", "level 32"],
+    ["Raichu", " F ", "level 100"],
 ];
 
 console.log(timePokemom[0]) //pega toda a coluna
@@ -112,3 +112,10 @@ let pessoasLegais = [
 
 console.log(pessoas[0][2])
 console.log(pessoasLegais[0]["cidade"])
+
+const pegouPokemon = "Parabéns por capturar, "
+const statusPokemon = " Status"
+
+console.log(pegouPokemon + timePokemom[0][0] + statusPokemon + timePokemom[0][1] + timePokemom[0][2])
+
+console.log(timePokemom.length)

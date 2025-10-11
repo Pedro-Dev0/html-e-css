@@ -87,3 +87,15 @@ console.log(matrizPessoas[2]["cidade"]); // Belo Horizonte
 console.log(matrizPessoas[0]["nome"]); // Ana
 console.log(matrizPessoas[0]["idade"]); // 28
 console.log(matrizPessoas[0]["cidade"]); // São Paulo
+
+let timePokemom = [
+    ["Pikachu", "M", "level 1"],
+    ["Chamander", "M", "level 10"],
+    ["Bulbasaro", "F", "level 32"],
+    ["Raichu", "F", "level 100"],
+];
+
+console.log(timePokemom[0]) //pega toda a coluna
+console.log(timePokemom[0][0]) // nome
+console.log(timePokemom[0][1]) // pega a primeira coluna(0) e segundo item(1) sexualidade;
+console.log(timePokemom[0][2]) // level

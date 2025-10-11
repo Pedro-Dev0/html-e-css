@@ -29,3 +29,6 @@ if(nivelDeFome == 1) {
 } else {
     console.log("Comeria até os movéis")
 }
+
+
+// switchs 

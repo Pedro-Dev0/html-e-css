@@ -51,3 +51,7 @@ switch (brincarDoQue) {
     default:
         console.log("Não sabemos, ver TV nesse caso")
 }
+
+for (let contador = 0; contador <= 4; contador++){
+    console.log(contador)
+}

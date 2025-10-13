@@ -33,3 +33,21 @@ if(vamosBrincar == true) {
 } else {
     console.log("Não fez nada, não pode brincar")
 }
+
+
+console.log("João e Pedro querem brincar, mas do que seria legal?")
+let brincarDoQue = 1
+
+switch (brincarDoQue) {
+    case 1:
+        console.log("Pega pega")
+    break
+    case 2:
+        console.log("Pular corda")
+    break
+    case 3:
+        console.log("Lutinha")
+    break
+    default:
+        console.log("Não sabemos, ver TV nesse caso")
+}

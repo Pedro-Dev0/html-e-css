@@ -48,7 +48,7 @@
 #chat-form { display:flex; gap:8px; padding:10px; background:#fff; border-top:1px solid #eee; }
 #chat-input { flex:1; padding:8px; border-radius:8px; border:1px solid #ccc; }
 .close-chat { background:none; border:none; color:#fff; font-size:20px; cursor:pointer; margin-left:auto; }
-.chat-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:1200; display:none; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.chat-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:1200; display:none; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 @media (max-width:520px){ .chatbot-section{ right:10px; left:10px; width:auto; bottom:24px; border-radius:10px; height:80vh; } .chat-messages{max-height:60vh;} .chat-quick-options{flex-direction:column;} }
 * {
     margin: 0;
@@ -271,7 +271,6 @@ p {
 /* Esconder a barra de rolagem visualmente, mantendo a rolagem por touch/trackpad/roda do mouse */
 /* Firefox */
 body {
-    scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE 10+ */
 }
 /* WebKit (Chrome, Edge, Safari) */

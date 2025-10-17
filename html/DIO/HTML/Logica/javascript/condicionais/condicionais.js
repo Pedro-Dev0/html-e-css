@@ -32,3 +32,19 @@ if (NumeroPar) {
 }
 
 // if == se e condição, caso a condição não seja realizazada ai se executa o else == se não (se não comprida condição ai else)
+
+let idade = 17;
+
+let amigo = 19;
+
+const comprarCigarros = 18;
+
+if (idade >= comprarCigarros) {
+    console.log("pode comprar cigarros")
+} else if (amigo >= comprarCigarros) {
+    console.log("Amigo compra para você")
+} else {
+    console.log("não pode comprar cigarros")
+}
+
+// testando na prática para aprender

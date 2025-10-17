@@ -11,7 +11,7 @@ if (z > x) {
 
 // vendo numero pares ou impar
 
-const numero = 3
+const numero = 0
 
 /*
 if (numero % 2 === 0) {
@@ -27,7 +27,8 @@ console.log(NumeroPar)
 
 if (NumeroPar) {
     console.log("par")
-} 
-if (!NumeroPar) {
+} else {
     console.log("impar")
 }
+
+// if == se e condição, caso a condição não seja realizazada ai se executa o else == se não (se não comprida condição ai else)

@@ -11,7 +11,7 @@ if (z > x) {
 
 // vendo numero pares ou impar
 
-const numero = 5
+const numero = 3
 
 /*
 if (numero % 2 === 0) {
@@ -25,3 +25,9 @@ console.log(NumeroPar)
 
 // sempre usar === pois não misturamos tipos, sempre melhor um tipo com o mesmo tipo, por isso estritamente igual faz com que só dois tipos iguais se reconheçam enquanto == faz com que dois tipos diferentes se reconheçam
 
+if (NumeroPar) {
+    console.log("par")
+} 
+if (!NumeroPar) {
+    console.log("impar")
+}

@@ -1,8 +1,9 @@
-let peso = 90;
+let peso = 105;
 let altura = 1.90;
 
 const imc = peso / (altura * altura)
-
+//Math.pow(altura, 2) função de uma biblioteca de matématica para fazer ao quadrado o valor informado...
+ 
 console.log(`seu IMC é ${imc.toFixed(2)}`);
 
 if (imc < 18.5) {

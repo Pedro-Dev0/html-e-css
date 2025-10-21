@@ -28,5 +28,9 @@ function classificarImc(imc) {
   }
 }
 
-const imc = calcularImc(100, 1.9);
-console.log(classificarImc(imc));
+function main() {
+  let peso = 100;
+  let altura = 1.9;
+  const imc = calcularImc(peso, altura);
+  console.log(classificarImc(imc));
+}

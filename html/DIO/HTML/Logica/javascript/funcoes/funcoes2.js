@@ -48,3 +48,5 @@ main();*/
 })();
 
 // função que se autoinvoca pode ter nome ou não, como se autoinvoca não precisa de um nome pois ela mesma já se chama...são funcoes isoladas para códigos isolados de um único uso!
+
+

@@ -28,3 +28,17 @@ function tudoJunto() {
 }
 
 tudoJunto();
+
+function comprasEPrecos(valor, forma, descontoOuAdicao) {
+    if(forma === 1) { // dinheiro 10%
+        console.log(valor - (valor * descontoOuAdicao) / 100);
+    } else if(forma === 2) { // pix 15%
+        console.log(valor - (valor * descontoOuAdicao) / 100);
+    } else if (forma === 3) { //cartão parcelado em até 2x
+        console.log(valor);
+    } else {  // cartão parcelado em até 3x ou mais, valor mais 10% de juros
+        console.log(valor + (valor * descontoOuAdicao) / 100);
+    }
+}
+
+comprasEPrecos(100, 4, 20);

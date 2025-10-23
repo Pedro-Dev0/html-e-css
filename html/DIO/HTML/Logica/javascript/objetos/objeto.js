@@ -36,7 +36,7 @@ const atributo = "idade"; // usando uma string com o nome igual ao do atributo n
 
 console.log(pedro[atributo]);
 
-class pessoa {
+class Pessoa { // classe definição do objeto
   nome;
   idade;
 
@@ -46,3 +46,19 @@ class pessoa {
     );
   }
 };
+
+const vitor = new Pessoa();
+// aparece sem nada os dados da pessoa(vitor), vou add os dados abaixo:
+vitor.nome = `Vitor`;
+vitor.idade = 22;
+vitor.descricao();
+console.log(vitor);
+
+const renan = new Pessoa();
+// aparece sem nada os dados da pessoa(vitor), vou add os dados abaixo:
+renan.nome = `Renan`;
+renan.idade = 30; // instancia ocorrencia do objeto para colocar informações ou tirar;
+renan.descricao();
+console.log(renan);
+
+

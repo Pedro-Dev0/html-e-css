@@ -36,7 +36,8 @@ const atributo = "idade"; // usando uma string com o nome igual ao do atributo n
 
 console.log(pedro[atributo]);
 
-class Pessoa { // classe definição do objeto
+class Pessoa {
+  // classe definição do objeto
   nome;
   idade;
 
@@ -51,12 +52,12 @@ class Pessoa { // classe definição do objeto
       `Meu nome é ${this.nome}, e tenho ${this.idade} anos, atualmente procuro vagas de estágio em TI para melhorar na área e me consolidar na mesma, conseguindo então maiores experiências e me aprimorando profissionalmente`
     );
   }
-};
+}
 
 const vitor = new Pessoa(`Pedro`, 22);
 const renan = new Pessoa(`Murilo`, 42);
 
-console.log(vitor, renan)
+console.log(vitor, renan);
 // exemplo abaixo foi feito sem constructor por isso precisavamos adicionar informações, nesse outro exemplo fica mais fácil pois tudo já está construido ai só coloamos parametros pedidos...
 
 // aparece sem nada os dados da pessoa(vitor), vou add os dados abaixo:
@@ -72,4 +73,12 @@ renan.idade = 30; // instancia ocorrencia do objeto para colocar informações o
 renan.descricao();
 console.log(renan);*/
 
-
+function compararPessoas(p1, p2) {
+  if (p1.idade > p2.idade) {
+    console.log(`${p1.nome} é mais velho que ${p2.nome}`);
+  } else if (p2.idade > p1.idade) {
+    console.log(`${p2.nome} é mais velho que ${p1.nome}`);
+  } else {
+    console.log(`${p1.nome} e ${p2.nome} tem a mesma idade!`)
+  }
+}

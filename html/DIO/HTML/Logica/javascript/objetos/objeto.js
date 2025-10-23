@@ -40,6 +40,12 @@ class Pessoa { // classe definição do objeto
   nome;
   idade;
 
+  constructor(nome, idade) {
+    this.nome = nome;
+    this.idade = idade;
+    this.anoDeNascimento = 2025 - idade;
+  }
+
   descricao() {
     console.log(
       `Meu nome é ${this.nome}, e tenho ${this.idade} anos, atualmente procuro vagas de estágio em TI para melhorar na área e me consolidar na mesma, conseguindo então maiores experiências e me aprimorando profissionalmente`
@@ -47,9 +53,14 @@ class Pessoa { // classe definição do objeto
   }
 };
 
-const vitor = new Pessoa();
+const vitor = new Pessoa(`Pedro`, 22);
+const renan = new Pessoa(`Murilo`, 42);
+
+console.log(vitor, renan)
+// exemplo abaixo foi feito sem constructor por isso precisavamos adicionar informações, nesse outro exemplo fica mais fácil pois tudo já está construido ai só coloamos parametros pedidos...
+
 // aparece sem nada os dados da pessoa(vitor), vou add os dados abaixo:
-vitor.nome = `Vitor`;
+/*vitor.nome = `Vitor`;
 vitor.idade = 22;
 vitor.descricao();
 console.log(vitor);
@@ -59,6 +70,6 @@ const renan = new Pessoa();
 renan.nome = `Renan`;
 renan.idade = 30; // instancia ocorrencia do objeto para colocar informações ou tirar;
 renan.descricao();
-console.log(renan);
+console.log(renan);*/
 
 

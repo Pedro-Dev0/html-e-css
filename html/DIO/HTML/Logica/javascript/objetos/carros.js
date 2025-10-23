@@ -19,4 +19,4 @@ console.log(uno);
 console.log(uno.calcularGastoDePercurso(10, 6.22));
 const palio = new Carro(`Volksvagew`, `Prata`, 10 / 12.5)
 console.log(palio);
-console.log(palio.calcularGastoDePercurso(10, 6.22));
+console.log(palio.calcularGastoDePercurso(10, 6.22)); // ocorrencias

@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
 
 /*
-.roboto {
+roboto {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: <weight>;
@@ -11,3 +10,13 @@
     "wdth" <width>;
 }
 */
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  box-sizing: border-box;
+}

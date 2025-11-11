@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
 
+
 /*
+
+Fonte roboto no @import url
 roboto {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
@@ -37,8 +40,19 @@ roboto {
 
 .pokemons li {
   margin: 0.5rem;
-  padding: 1rem;
+  padding: 2rem 1rem;
   border-radius: 1rem;
   background-color: #1dcaa9;
   color: white;
+  display: flex;
+  flex-direction: column;
+}
+/*
+foi tirado o tamanho de altura = height para as imagens grandes ficarem corretas no quadrado e usado display flex para flexionar os itens e ficarem mais flexiveis no mesmo e colum para infileirar para ficar mais similar a pokedex
+*/
+
+.pokemons li img {
+  border-style: none;
+  max-width: 100%;
+  height: 100px;
 }

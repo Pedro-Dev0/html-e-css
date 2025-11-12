@@ -76,15 +76,19 @@ foi tirado o tamanho de altura = height para as imagens grandes ficarem corretas
   opacity: 0.9;
 }
 
-.pokemon .details img {
-  border-style: none;
-  max-width: 100%;
-  height: 70px;
-}
-
 .pokemon .details {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  align-items: center;      /* 1 */
   justify-content: space-between;
+  gap: 0.5rem;              /* 2 */
+}
+
+.pokemon .details img {
+  width: 70px;              /* 3 */
+  height: auto;
+  margin-left: 0.5rem;      /* 4 */
+}
+
+.pokemon {
+  min-height: 150px;        /* 5 */
 }

@@ -39,13 +39,14 @@ roboto {
 }
 
 .pokemons li {
+  display: flex;
+  flex-direction: column;
   margin: 0.5rem;
   padding: 2rem 1rem;
   border-radius: 1rem;
   background-color: #1dcaa9;
   color: white;
-  display: flex;
-  flex-direction: column;
+  
 }
 /*
 foi tirado o tamanho de altura = height para as imagens grandes ficarem corretas no quadrado e usado display flex para flexionar os itens e ficarem mais flexiveis no mesmo e colum para infileirar para ficar mais similar a pokedex

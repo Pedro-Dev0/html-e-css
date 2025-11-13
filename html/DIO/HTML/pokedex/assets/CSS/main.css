@@ -32,13 +32,8 @@ body {
 .content {
   padding: 1rem;
   background-color: #fff;
-}
-
-@media screen and (min-width: 992px) {
-  .content {
-    padding: 1rem;
-    margin: 0 auto;
-  }
+  height: 100vh;
+  width: 100vw;
 }
 
 .pokemons {
@@ -53,7 +48,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0.2rem;
-  padding: 0.4rem 0.4rem;
+  padding: 0.3rem 0.15rem;
   border-radius: 1rem;
   background-color: #1dcaa9;
 }
@@ -96,11 +91,31 @@ foi tirado o tamanho de altura = height para as imagens grandes ficarem corretas
 }
 
 .pokemon .details img {
-  width: 70px; /* 3 */
+  width: 80px; /* 3 */
   height: auto;
   margin-left: 0.2rem; /* 4 */
 }
 
 .pokemon {
   min-height: 150px; /* 5 */
+}
+
+@media screen and (min-width: 576px) {
+  .pokemons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .content {
+    padding: 1rem;
+    margin: 1rem auto;
+    height: auto;
+    max-width: 992px;
+    border-radius: 1rem;
+  }
+
+  .pokemons {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

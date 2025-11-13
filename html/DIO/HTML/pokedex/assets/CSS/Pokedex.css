@@ -1,0 +1,63 @@
+.pokemons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pokemon {
+  display: flex;
+  flex-direction: column;
+  margin: 0.2rem;
+  padding: 0.3rem 0.15rem;
+  border-radius: 0.8rem;
+  background-color: #1dcaa9;
+}
+
+.pokemon .name {
+  color: white;
+  margin: 0.2rem;
+}
+/*
+foi tirado o tamanho de altura = height para as imagens grandes ficarem corretas no quadrado e usado display flex para flexionar os itens e ficarem mais flexiveis no mesmo e colum para infileirar para ficar mais similar a pokedex
+*/
+.pokemon .number {
+  color: #158f7979;
+  opacity: .9;
+  text-align: right;
+  font-size: 0.7rem;
+}
+
+.pokemon .types {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.pokemon .details .types .type {
+  background-color: #32d8bb;
+  color: #fff;
+  padding: 0.2rem 0.2rem;
+  border-radius: 15px;
+  margin: 0.1rem;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.pokemon .details {
+  display: flex;
+  align-items: center; /* 1 */
+  justify-content: space-between;
+  gap: 0.2rem; /* 2 */
+}
+
+.pokemon .details img {
+  width: 80px; /* 3 */
+  height: auto;
+  margin-left: 0.2rem; /* 4 */
+}
+
+.pokemon {
+  min-height: 150px; /* 5 */
+}

@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.pais {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+}
+
+.pais h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.imagem-pais {
+    background-color: #000;
+    height: 150px;
+    width: 100%;
+}
+
+/* ============================================
+   BREAKPOINT 1: Desktop (mínimo 1280px)
+   Layout: 6 colunas (cada bloco ocupa 1/6)
+   ============================================ */
+@media screen and (min-width: 1280px) {
+    .pais {
+        flex: 0 0 calc(16.66% - 10px);
+    }
+}
+
+/* ============================================
+   BREAKPOINT 2: Tablet (mínimo 768px até 1279px)
+   Layout: 3 colunas (cada bloco ocupa 1/3)
+   ============================================ */
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .pais {
+        flex: 0 0 calc(33.33% - 10px);
+    }
+}
+
+/* ============================================
+   BREAKPOINT 3: Telas médias (mínimo 480px até 767px)
+   Layout: 2 colunas (cada bloco ocupa 1/2)
+   ============================================ */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .pais {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+/* ============================================
+   BREAKPOINT 4: Smartphone (menor que 480px)
+   Layout: 1 coluna (cada bloco ocupa 100%)
+   ============================================ */
+@media screen and (max-width: 479px) {
+    .pais {
+        flex: 0 0 100%;
+    }
+}
